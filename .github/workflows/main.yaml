@@ -2,7 +2,7 @@ name: Flutter Web deployment
 on:
   schedule:
     # * is a special character in YAML so you have to quote this string
-    - cron:  '13 11 * * *'
+    - cron:  '25 11 * * *'
   
 jobs:
     build:
