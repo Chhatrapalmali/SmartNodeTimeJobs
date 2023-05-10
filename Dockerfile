@@ -22,7 +22,8 @@
 #ENV PATH "$PATH:/home/developer/Android/sdk/platform-tools"
 
 # Download Flutter SDK
-#RUN git clone https://github.com/flutter/flutter.git /usr/local/flutter
+#RUN git clone https://github.com/flutter/flutter.git -b flutter-3.7-candidate.8 /usr/local/flutter
+ 
 #ENV PATH="/usr/local/flutter/bin:${PATH}"
 
 # Run basic check to download Dark SDK
@@ -37,7 +38,7 @@ RUN apt-get install -y curl git wget unzip libgconf-2-4 gdb libstdc++6 libglu1-m
 RUN apt-get clean
 
 # download Flutter SDK from Flutter Github repo
-RUN git clone https://github.com/flutter/flutter.git /usr/local/flutter
+RUN git clone https://github.com/flutter/flutter.git -b flutter-3.7-candidate.8 /usr/local/flutter
 
 # Set flutter environment path
 ENV PATH="/usr/local/flutter/bin:/usr/local/flutter/bin/cache/dart-sdk/bin:${PATH}"
