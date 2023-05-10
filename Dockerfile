@@ -59,9 +59,9 @@ RUN apt-get update && \
 
 # Install Flutter
   RUN wget -q https://storage.googleapis.com/flutter_infra/releases/stable/linux/flutter_linux_2.5.3-stable.tar.xz && \
-# wget -q https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_3.7.8-stable.tar.xz && \
-    tar xf flutter_linux_3.7.8-stable.tar.xz && \
-    rm flutter_linux_3.7.8-stable.tar.xz
+
+    tar xf flutter_linux_2.5.3-stable.tar.xz && \
+    rm flutter_linux_2.5.3-stable.tar.xz
     
 
 # Add Flutter to the path
