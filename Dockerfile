@@ -52,12 +52,15 @@ FROM ubuntu:18.04
 # Install required packages
 RUN apt-get update && \
     apt-get install -y curl git unzip xz-utils zip libglu1-mesa openjdk-8-jdk wget apache2
+    apt-get update && \
+    apt-get install -y curl git unzip xz-utils zip libglu1-mesa openjdk-8-jdk wget
 
 # Set the working directory to /app
 #WORKDIR /app
 
 # Install Flutter
-RUN wget -q https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_3.7.8-stable.tar.xz && \
+  RUN wget -q https://storage.googleapis.com/flutter_infra/releases/stable/linux/flutter_linux_2.5.3-stable.tar.xz && \
+# wget -q https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_3.7.8-stable.tar.xz && \
     tar xf flutter_linux_3.7.8-stable.tar.xz && \
     rm flutter_linux_3.7.8-stable.tar.xz
     
