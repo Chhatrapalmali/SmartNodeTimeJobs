@@ -36,10 +36,12 @@ RUN apt-get update
 RUN apt install -y curl git unzip xz-utils zip libglu1-mesa openjdk-8-jdk wget
 RUN apt-get install -y curl git wget unzip libgconf-2-4 gdb libstdc++6 libglu1-mesa fonts-droid-fallback lib32stdc++6 python3 apache2
 RUN apt-get clean
-RUN flutter channel stable && flutter upgrade
 
 # download Flutter SDK from Flutter Github repo
-#RUN git clone https://github.com/flutter/flutter.git -b flutter-3.7-candidate.12 /usr/local/flutter
+RUN git clone https://github.com/flutter/flutter.git -b flutter-3.7-candidate.12 /usr/local/flutter
+
+RUN flutter channel stable && flutter upgrade
+
 
 # Set flutter environment path
 ENV PATH="/usr/local/flutter/bin:/usr/local/flutter/bin/cache/dart-sdk/bin:${PATH}"
