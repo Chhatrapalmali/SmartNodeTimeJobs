@@ -1,7 +1,7 @@
-FROM ubuntu:18.04
+#FROM ubuntu:18.04
 
 # Prerequisites
-RUN apt update && apt install -y curl git unzip xz-utils zip libglu1-mesa openjdk-8-jdk wget
+#RUN apt update && apt install -y curl git unzip xz-utils zip libglu1-mesa openjdk-8-jdk wget
 
 # Set up new user
 #RUN useradd -ms /bin/bash developer
@@ -22,25 +22,25 @@ RUN apt update && apt install -y curl git unzip xz-utils zip libglu1-mesa openjd
 #ENV PATH "$PATH:/home/developer/Android/sdk/platform-tools"
 
 # Download Flutter SDK
-RUN git clone https://github.com/flutter/flutter.git /usr/local/flutter
-ENV PATH="/usr/local/flutter/bin:${PATH}"
+#RUN git clone https://github.com/flutter/flutter.git /usr/local/flutter
+#ENV PATH="/usr/local/flutter/bin:${PATH}"
 
 # Run basic check to download Dark SDK
-RUN flutter doctor
+#RUN flutter doctor
 
 # Install Operating system and dependencies
-#FROM ubuntu:20.04
+FROM ubuntu:18.04
 
-#RUN apt-get update 
+RUN apt-get update 
 #RUN apt install -y curl git unzip xz-utils zip libglu1-mesa openjdk-8-jdk wget
-#RUN apt-get install -y curl git wget unzip libgconf-2-4 gdb libstdc++6 libglu1-mesa fonts-droid-fallback lib32stdc++6 python3
-#RUN apt-get clean
+RUN apt-get install -y curl git wget unzip libgconf-2-4 gdb libstdc++6 libglu1-mesa fonts-droid-fallback lib32stdc++6 python3
+RUN apt-get clean
 
 # download Flutter SDK from Flutter Github repo
-#RUN git clone https://github.com/flutter/flutter.git /usr/local/flutter
+RUN git clone https://github.com/flutter/flutter.git /usr/local/flutter
 
 # Set flutter environment path
-#ENV PATH="/usr/local/flutter/bin:/usr/local/flutter/bin/cache/dart-sdk/bin:${PATH}"
+ENV PATH="/usr/local/flutter/bin:/usr/local/flutter/bin/cache/dart-sdk/bin:${PATH}"
 
 # Run flutter doctor
-#RUN flutter doctor
+RUN flutter doctor
