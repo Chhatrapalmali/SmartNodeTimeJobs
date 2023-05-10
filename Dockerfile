@@ -52,8 +52,7 @@ FROM ubuntu:18.04
 # Install required packages
 RUN apt-get update && \
     apt-get install -y curl git unzip xz-utils zip libglu1-mesa openjdk-8-jdk wget apache2
-    apt-get update && \
-    apt-get install -y curl git unzip xz-utils zip libglu1-mesa openjdk-8-jdk wget
+    
 
 # Set the working directory to /app
 #WORKDIR /app
