@@ -47,31 +47,29 @@
 #RUN flutter doctor
 
 
-FROM ubuntu:18.04
+# Start with a base image that has Flutter dependencies installed
+FROM cirrusci/flutter:2.5.3
 
-# Install required packages
-RUN apt-get update && \
-    apt-get install -y curl git unzip xz-utils zip libglu1-mesa openjdk-8-jdk wget apache2
-    
+# Set the Flutter version
+ENV FLUTTER_VERSION=3.7.8
+
+# Install the specified Flutter version
+RUN flutter version v${FLUTTER_VERSION} && \
+    flutter upgrade && \
+    flutter config --no-analytics && \
+    flutter precache --no-web --no-linux --no-windows
+
+# Set the PATH environment variable to include Flutter binaries
+ENV PATH=$PATH:/flutter/bin
 
 # Set the working directory to /app
 #WORKDIR /app
 
-# Install Flutter
-  RUN wget -q https://storage.googleapis.com/flutter_infra/releases/stable/linux/flutter_linux_2.5.3-stable.tar.xz && \
-
-    tar xf flutter_linux_2.5.3-stable.tar.xz && \
-    rm flutter_linux_2.5.3-stable.tar.xz
-    
-
-# Add Flutter to the path
-ENV PATH=$PATH:/app/flutter/bin
-
-# Run Flutter doctor to verify installation
-RUN flutter doctor
-
 # Copy the project to the container's /app directory
 #COPY . /app
 
-# Run the Flutter app
+# Run the Flutter doctor command to verify installation
+RUN flutter doctor
+
+# Set the default command to run the Flutter app
 #CMD ["flutter", "run"]
