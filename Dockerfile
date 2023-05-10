@@ -30,18 +30,46 @@
 #RUN flutter doctor
 
 # Install Operating system and dependencies
-FROM ubuntu:18.04
+#FROM ubuntu:18.04
 
-RUN apt-get update 
+#RUN apt-get update 
 #RUN apt install -y curl git unzip xz-utils zip libglu1-mesa openjdk-8-jdk wget
-RUN apt-get install -y curl git wget unzip libgconf-2-4 gdb libstdc++6 libglu1-mesa fonts-droid-fallback lib32stdc++6 python3 apache2
-RUN apt-get clean
+#RUN apt-get install -y curl git wget unzip libgconf-2-4 gdb libstdc++6 libglu1-mesa fonts-droid-fallback lib32stdc++6 python3 apache2
+#RUN apt-get clean
 
 # download Flutter SDK from Flutter Github repo
-RUN git clone https://github.com/flutter/flutter.git -b flutter-3.7-candidate.8 /usr/local/flutter
+#RUN git clone https://github.com/flutter/flutter.git -b flutter-3.7-candidate.8 /usr/local/flutter
 
 # Set flutter environment path
-ENV PATH="/usr/local/flutter/bin:/usr/local/flutter/bin/cache/dart-sdk/bin:${PATH}"
+#ENV PATH="/usr/local/flutter/bin:/usr/local/flutter/bin/cache/dart-sdk/bin:${PATH}"
 
 # Run flutter doctor
+#RUN flutter doctor
+
+
+FROM ubuntu:18.04
+
+# Install required packages
+RUN apt-get update && \
+    apt-get install -y curl git unzip xz-utils zip libglu1-mesa openjdk-8-jdk wget apache2
+
+# Set the working directory to /app
+#WORKDIR /app
+
+# Install Flutter
+RUN wget -q https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_3.7.8-stable.tar.xz && \
+    tar xf flutter_linux_3.7.8-stable.tar.xz && \
+    rm flutter_linux_3.7.8-stable.tar.xz
+    
+
+# Add Flutter to the path
+ENV PATH=$PATH:/app/flutter/bin
+
+# Run Flutter doctor to verify installation
 RUN flutter doctor
+
+# Copy the project to the container's /app directory
+#COPY . /app
+
+# Run the Flutter app
+#CMD ["flutter", "run"]
