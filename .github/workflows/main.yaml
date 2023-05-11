@@ -4,9 +4,7 @@ on:
    # branches:
    #   - master
   schedule:
-    # * is a special character in YAML so you have to quote this string
-    - cron:  '47 5 * * *'
-  
+    - cron: "*/5 * * * *"
 jobs:
     build:
      name: Build Web
