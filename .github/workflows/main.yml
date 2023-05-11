@@ -1,10 +1,10 @@
 name: Flutter Web deployment
 on:
-  #push:
-   # branches:
-   #   - master
-  schedule:
-    - cron: "*/2 * * * *"
+  push:
+    branches:
+      - master
+  #schedule:
+   # - cron: "*/2 * * * *"
 jobs:
     build:
      name: Build Web
