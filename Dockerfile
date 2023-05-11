@@ -39,12 +39,12 @@ RUN echo "ServerName design.smartnode.in" >> /etc/apache2/apache2.conf
 RUN apt-get clean
 
 # download Flutter SDK from Flutter Github repo
-RUN git clone https://github.com/flutter/flutter.git /usr/local/flutter
+RUN git clone https://github.com/flutter/flutter.git -b stable  /usr/local/flutter
 
 # Set flutter environment path
 ENV PATH="/usr/local/flutter/bin:${PATH}"
 
-
+Run flutter channel stable && flutter upgrade
 # Run flutter doctor
 RUN flutter doctor
 Run flutter --version
