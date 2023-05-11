@@ -46,5 +46,3 @@ ENV PATH="/usr/local/flutter/bin:${PATH}"
 
 # Run flutter doctor
 RUN flutter doctor
-
-
