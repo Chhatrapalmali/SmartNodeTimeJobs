@@ -38,13 +38,11 @@ RUN apt-get install -y curl git wget unzip libgconf-2-4 gdb libstdc++6 libglu1-m
 RUN apt-get clean
 
 # download Flutter SDK from Flutter Github repo
-RUN git clone https://github.com/flutter/flutter.git -b flutter-3.7-candidate.12 /usr/local/flutter
-
-RUN flutter channel stable && flutter upgrade
-
+RUN git clone https://github.com/flutter/flutter.git /usr/local/flutter
 
 # Set flutter environment path
-ENV PATH="/usr/local/flutter/bin:/usr/local/flutter/bin/cache/dart-sdk/bin:${PATH}"
+ENV PATH="/usr/local/flutter/bin:${PATH}"
+
 
 # Run flutter doctor
 RUN flutter doctor
