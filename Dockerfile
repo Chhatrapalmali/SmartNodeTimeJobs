@@ -34,7 +34,7 @@ FROM ubuntu:18.04
 
 RUN apt-get update 
 RUN apt install -y curl git unzip xz-utils zip libglu1-mesa openjdk-8-jdk wget
-RUN apt-get install -y curl git wget unzip libgconf-2-4 gdb libstdc++6 libglu1-mesa fonts-droid-fallback lib32stdc++6 python3 apache2
+RUN apt-get install -y curl git wget unzip libgconf-2-4 gdb libstdc++6 libglu1-mesa fonts-droid-fallback lib32stdc++6 python3 httpd
 RUN apt-get clean
 
 # download Flutter SDK from Flutter Github repo
