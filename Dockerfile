@@ -29,6 +29,6 @@ RUN flutter --version
 
 #RUN flutter build web --release --web-renderer canvaskit
 
-RUN cp -r /app/build/web/* /var/www/html/
+#RUN cp -r /app/build/web/* /var/www/html/
 
-CMD apachectl -D FOREGROUND
+#CMD apachectl -D FOREGROUND
