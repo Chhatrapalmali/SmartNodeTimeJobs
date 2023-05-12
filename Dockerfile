@@ -7,7 +7,7 @@ RUN apt-get clean
 #RUN apt update && apt install -y curl openjdk-8-jdk wget apache2 git 2.x unzip xz-utils zip libglu1-mesa 
 RUN wget https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_3.7.12-stable.tar.xz 
 RUN pwd
-RUN tar xf flutter_linux_3.10.0-stable.tar.xz
+RUN tar xf flutter_linux_3.7.12-stable.tar.xz 
 ENV PATH="/bin:${PATH}"
 RUN flutter doctor
 RUN flutter --version
