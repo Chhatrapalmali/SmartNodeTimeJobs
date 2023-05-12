@@ -2,7 +2,7 @@ name: Flutter Web deployment
 on:
   push:
     branches:
-      - master
+      - test
   #schedule:
    # - cron: "*/2 * * * *"
 jobs:
@@ -35,5 +35,5 @@ jobs:
           context: .
           dockerfile: Dockerfile
           push: true
-          tags: ${{ env.DOCKER_USERNAME }}/images:flutter11.5.23
+          tags: ${{ env.DOCKER_USERNAME }}/images:flutter_test_12.5.23
 
