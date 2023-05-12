@@ -8,6 +8,6 @@ RUN apt-get clean
 RUN wget https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_3.7.12-stable.tar.xz 
 RUN pwd
 RUN tar xf flutter_linux_3.7.12-stable.tar.xz 
-ENV PATH="/bin:${PATH}"
+ENV export PATH="$PATH:`pwd`/flutter/bin"
 RUN flutter doctor
 RUN flutter --version
