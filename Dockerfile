@@ -15,8 +15,8 @@ ENV PATH="/usr/local/flutter/bin:${PATH}"
 
 #Run flutter channel stable 
 
-#RUN flutter doctor
-
+RUN flutter doctor
+RUN flutter clean
 RUN flutter --version
 
 #WORKDIR /app
