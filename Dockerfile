@@ -1,9 +1,9 @@
 #FROM ubuntu:18.04
 FROM alpine:latest
 RUN apk update && apk upgrade && reboot
-RUN apk add --no-cache mesa-gl git gzip apache2 xz gzip openjdk8-jre bash
+RUN apk add --no-cache mesa-gl git gzip apache2 xz gzip openjdk8-jre bash curl
 #RUN apt-get update 
-#RUN apt-get install -y git libglu1-mesa apache2 xz-utils zip openjdk-8-jdk
+#RUN apt-get install -y git libglu1-mesa apache2 xz-utils zip openjdk-8-jdk curl
 RUN echo "ServerName app.smartnode.in" >> /etc/apache2/apache2.conf
 #RUN apt-get clean
 
