@@ -8,8 +8,10 @@ RUN echo "ServerName app.smartnode.in" >> /etc/apache2/apache2.conf
 #RUN apt-get clean
 
 # download Flutter SDK from Flutter Github repo
-RUN git clone https://github.com/flutter/flutter.git -b stable 
 RUN pwd
+
+RUN git clone https://github.com/flutter/flutter.git -b stable /
+
 # Set flutter environment path
 ENV PATH="/bin:${PATH}"
 RUN pwd
