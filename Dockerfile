@@ -31,7 +31,7 @@ ENV PATH="/usr/local/flutter/bin:${PATH}"
 
 # Build the app
 #RUN cd /app && \
-  flutter build apk --release
+  #flutter build apk --release
 
 # Set the default command to run when the container starts
 #CMD ["flutter", "run", "--release", "-d", "web-server"]
