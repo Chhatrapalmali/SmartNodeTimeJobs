@@ -11,7 +11,7 @@ RUN git clone https://github.com/flutter/flutter.git -b stable  /usr/local/flutt
 # Set flutter environment path
 ENV PATH="/usr/local/flutter/bin:${PATH}"
 
-Run flutter channel stable 
+#Run flutter channel stable 
 
 RUN flutter doctor
 
