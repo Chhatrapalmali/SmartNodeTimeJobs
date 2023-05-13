@@ -1,11 +1,16 @@
 FROM alpine:latest
 
 # Install dependencies
-RUN apk add --no-cache bash git openssh
+RUN apk add --no-cache bash git openssh dart-sdk \
+  curl \
+  wget \
+  unzip \
+  xz \
+  libstdc++
 
 # Create non-root user
-RUN addgroup -S appgroup && adduser -S appuser -G appgroup
-USER appuser
+#RUN addgroup -S appgroup && adduser -S appuser -G appgroup
+#USER appuser
 
 # Clone flutter repository
 RUN git clone https://github.com/flutter/flutter.git -b stable /usr/local/flutter && \
