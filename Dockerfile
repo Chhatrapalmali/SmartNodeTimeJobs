@@ -1,22 +1,18 @@
 FROM alpine:latest
 
-# Install necessary packages
-RUN apk add --update --no-cache \
-  bash \
-  git \
-  openssh-client \
-  curl \
-  wget \
-  unzip \
-  xz \
-  libstdc++
+# Install dependencies
+RUN apk add --no-cache bash git openssh
 
-# Download and install Flutter SDK
+# Create non-root user
+RUN addgroup -S appgroup && adduser -S appuser -G appgroup
+USER appuser
+
+# Clone flutter repository
 RUN git clone https://github.com/flutter/flutter.git -b stable /usr/local/flutter && \
-  export PATH=$PATH:/usr/local/flutter/bin && \
-  flutter precache && \
-  flutter config --no-analytics && \
-  flutter doctor
+    export PATH=$PATH:/usr/local/flutter/bin && \
+    flutter precache && \
+    flutter config --no-analytics && \
+    flutter doctor
 
 # Set environment variables
 ENV PATH="/usr/local/flutter/bin:${PATH}"
