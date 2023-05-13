@@ -10,10 +10,10 @@ RUN echo "ServerName app.smartnode.in" >> /etc/apache2/apache2.conf
 # download Flutter SDK from Flutter Github repo
 RUN pwd
 
-RUN git clone https://github.com/flutter/flutter.git -b stable /
-
+RUN git clone https://github.com/flutter/flutter.git -b stable 
+ 
 # Set flutter environment path
-ENV PATH="/bin:${PATH}"
+ENV export PATH="$PATH:`pwd`/flutter/bin"
 RUN pwd
 #Run flutter channel stable 
 
