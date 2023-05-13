@@ -13,7 +13,8 @@ RUN pwd
 RUN git clone https://github.com/flutter/flutter.git -b stable 
  
 # Set flutter environment path
-ENV export PATH="$PATH:`pwd`/flutter/bin"
+ENV FLUTTER_HOME=/opt/flutter PUB_CACHE=/var/tmp/.pub_cache FLUTTER_ROOT=/opt/flutter PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/flutter/bin:/var/tmp/.pub_cache/bin
+#ENV export PATH="$PATH:`pwd`/flutter/bin"
 RUN pwd
 #Run flutter channel stable 
 
