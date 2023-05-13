@@ -1,35 +1,68 @@
-FROM alpine:latest
+# Stage 1
+FROM ubuntu:latest AS build-env
+
+RUN apt-get update 
+RUN apt-get install -y curl git wget unzip libgconf-2-4 gdb libstdc++6 libglu1-mesa fonts-droid-fallback lib32stdc++6 
+RUN apt-get clean
+
+RUN git clone https://github.com/flutter/flutter.git -b stable /usr/local/flutter
+
+ENV PATH="/usr/local/flutter/bin:/usr/local/flutter/bin/cache/dart-sdk/bin:${PATH}"
+
+RUN flutter doctor -v
+
+RUN flutter channel stable
+RUN flutter upgrade
+RUN flutter config --enable-web
+
+#RUN mkdir /app/
+#COPY . /app/
+#WORKDIR /app/
+#RUN flutter build web
+
+# Stage 2
+#FROM nginx:1.21.1-alpine
+#COPY --from=build-env /app/build/web /usr/share/nginx/html
+
+
+
+
+#FROM ubuntu:18.04
+
+
+
+#FROM alpine:latest
 
 # Install dependencies
-RUN apk add --no-cache bash git openssh dart-sdk \
-  curl \
-  wget \
-  unzip \
-  xz \
-  libstdc++
+#RUN apk add --no-cache bash git openssh dart-sdk \
+ # curl \
+ # wget \
+  #unzip \
+ # xz \
+ # libstdc++
 
 # Create non-root user
 #RUN addgroup -S appgroup && adduser -S appuser -G appgroup
 #USER appuser
 
 # Clone flutter repository
-RUN git clone https://github.com/flutter/flutter.git -b stable /usr/local/flutter && \
-    export PATH=$PATH:/usr/local/flutter/bin 
-    RUN ls && \
-    flutter precache && \
-    flutter config --no-analytics && \
-    flutter doctor
+#RUN git clone https://github.com/flutter/flutter.git -b stable /usr/local/flutter && \
+  #  export PATH=$PATH:/usr/local/flutter/bin 
+   # RUN ls && \
+   # flutter precache && \
+   # flutter config --no-analytics && \
+   # flutter doctor
 
 # Set environment variables
-ENV PATH="/usr/local/flutter/bin:${PATH}"
+#ENV PATH="/usr/local/flutter/bin:${PATH}"
 
 # Copy app source code to container
 #COPY . /app
-RUN ls
+#RUN ls
 # Install app dependencies
 #RUN cd /app && \
- RUN flutter packages get
- RUN flutter --version
+# RUN flutter packages get
+# RUN flutter --version
 
 # Build the app
 #RUN cd /app && \
