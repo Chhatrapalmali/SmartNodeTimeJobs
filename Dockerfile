@@ -9,7 +9,8 @@ USER appuser
 
 # Clone flutter repository
 RUN git clone https://github.com/flutter/flutter.git -b stable /usr/local/flutter && \
-    export PATH=$PATH:/usr/local/flutter/bin && \
+    export PATH=$PATH:/usr/local/flutter/bin 
+    RUN ls && \
     flutter precache && \
     flutter config --no-analytics && \
     flutter doctor
@@ -19,7 +20,7 @@ ENV PATH="/usr/local/flutter/bin:${PATH}"
 
 # Copy app source code to container
 #COPY . /app
-
+RUN ls
 # Install app dependencies
 #RUN cd /app && \
  RUN flutter packages get
