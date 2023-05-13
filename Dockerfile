@@ -14,9 +14,10 @@ RUN git clone https://github.com/flutter/flutter.git -b stable  /usr/local/flutt
 ENV PATH="/usr/local/flutter/bin:${PATH}"
 
 #Run flutter channel stable 
-
-RUN flutter doctor
 RUN flutter clean
+RUN flutter pub upgrade
+RUN flutter doctor
+
 RUN flutter --version
 
 #WORKDIR /app
